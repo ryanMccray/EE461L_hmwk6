@@ -64,7 +64,8 @@ to include your name with greetings you post.</p>
         <%
 
         int count = 3;
-        for (Greeting greeting : greetings) {
+        for (int i = greetings.size()-1; i >= 0; i--) {
+        	Greeting greeting = greetings.get(i);
             pageContext.setAttribute("greeting_content",
                                      greeting.getContent());
             pageContext.setAttribute("greeting_date",
