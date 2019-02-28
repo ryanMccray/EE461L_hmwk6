@@ -56,10 +56,14 @@ to include your name with greetings you post.</p>
         %>
         <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
         <%
-    } else {
+    } 
+    else {
+
         %>
         <p>Posts in BearBlog '${fn:escapeXml(guestbookName)}'.</p>
         <%
+
+        int count = 3;
         for (Greeting greeting : greetings) {
             pageContext.setAttribute("greeting_content",
                                      greeting.getContent());
@@ -81,6 +85,10 @@ to include your name with greetings you post.</p>
             %>
             <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
             <%
+            count--;
+            if(count == 0){
+                break;
+            }
         }
     }
 %>
