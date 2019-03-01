@@ -32,15 +32,21 @@
     pageContext.setAttribute("guestbookName", guestbookName);
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
-    String uri = request.getScheme() + "://" +
-            request.getServerName() + 
-            ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() ) +
-            request.getRequestURI() +
-           (request.getQueryString() != null ? "?" + request.getQueryString() : "");
+    //String full_url = request.getScheme() + "://" +
+    //        request.getServerName() + 
+    //        ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() ) +
+    //        request.getRequestURI() +
+    //       (request.getQueryString() != null ? "?" + request.getQueryString() : "");
     
-	%>
-		<p>Return to Landing Page</p>
-		<p>Here is a list of all the message on Bear Blog</p>
+    // CURRENT URL RETURNS THE CURRENT URL MINUS THE .JSP AT THE END
+    String current_url = request.getScheme() + "://" +
+            request.getServerName() + 
+            ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );
+ 	// CHANGE TO THE ADDRESS OF THE ACTUAL LANDING PAGE
+    current_url = current_url + "/ofyguestbook.jsp"; 
+	%>	
+		<p><a href="<%= current_url %>" >Return to Landing Page</a>.</p>
+		<p>Here is a list of all the messages posted on Bear Blog</p>
 		
 	<%
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
