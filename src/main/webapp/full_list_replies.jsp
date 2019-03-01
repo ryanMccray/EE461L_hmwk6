@@ -46,7 +46,7 @@
     current_url = current_url + "/ofyguestbook.jsp"; 
 	%>	
 		<p><a href="<%= current_url %>" >Return to Landing Page</a>.</p>
-		<p>Here is a list of all the messages posted on Bear Blog</p>
+		<h3>Here is a list of all the messages posted on Bear Blog</h3>
 		
 	<%
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -79,21 +79,22 @@
         <%
         for (Greeting greeting : greetings) {
             pageContext.setAttribute("greeting_content", greeting.getContent());
-            if (greeting.getUser() == null) {
-        %>
-                <p>An anonymous person wrote:</p>
-            <%
-            } 
-            else {
-                pageContext.setAttribute("greeting_user", greeting.getUser());
-            %>
-                <p><b>${fn:escapeXml(greeting_user.nickname)}</b> wrote:</p>
-            <%
-            }
-
+			pageContext.setAttribute("greeting_date", greeting.getDate());
+			pageContext.setAttribute("greeting_title", greeting.getTitle());
+			if (greeting.getUser() == null) {
+				%>
+				<p>At ${fn:escapeXml(greeting_date)}, Anonymous User posted ${fn:escapeXml(greeting_title)}:</p>
+				<%
+			} 
+			else {
+				pageContext.setAttribute("greeting_user", greeting.getUser());
+				%>
+				<p>At ${fn:escapeXml(greeting_date)}, <b>${fn:escapeXml(greeting_user.nickname)}</b> posted ${fn:escapeXml(greeting_title)}:</p>
+				<%
+			}
             %>
             <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
-<%
+			<%
 
         }
 
