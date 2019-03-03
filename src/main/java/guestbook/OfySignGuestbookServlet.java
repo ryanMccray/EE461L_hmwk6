@@ -1,6 +1,5 @@
 package guestbook;
 
-
 import com.google.appengine.api.users.User;
 
 import com.google.appengine.api.users.User;
@@ -31,40 +30,25 @@ import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
-
 //https://guestbook-231523.appspot.com/ofyguestbook.jsp?guestbookName=default
 
-
 public class OfySignGuestbookServlet extends HttpServlet {
-
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
-
                 throws IOException {
-
         UserService userService = UserServiceFactory.getUserService();
-
         User user = userService.getCurrentUser();
-        
+       
         ///////////////////////////////////////
-
         ObjectifyService.register(Greeting.class);
-
         List<Greeting> greetings = ObjectifyService.ofy().load().type(Greeting.class).list();   
-
         Collections.sort(greetings); 
-
-        String guestbookName = req.getParameter("guestbookName");
-        
+        String guestbookName = req.getParameter("guestbookName");       
         String content = req.getParameter("content");
-        
-        Greeting greeting = new Greeting(user, content, guestbookName);
-
+        String title = req.getParameter("title");
+        Greeting greeting = new Greeting(user, content, guestbookName,title); //add title
         ofy().save().entity(greeting).now();
 
- 
-
         resp.sendRedirect("/ofyguestbook.jsp?guestbookName=" + guestbookName);
-
     }
 
 }

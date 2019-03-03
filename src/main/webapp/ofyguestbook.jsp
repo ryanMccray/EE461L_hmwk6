@@ -29,7 +29,7 @@
       pageContext.setAttribute("user", user);
 %>
 <h1>
-<img src="file:///C|/Users/rmccr/eclipse-workspace/Guestbook/src/main/webapp/images/bearpaw.jpg" alt="" width="100" height="98.5"/>
+<img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/>
 BearBlog</h1>
 
 <hr>
@@ -41,6 +41,13 @@ BearBlog</h1>
 <%
     } else {
 %>
+<h1>
+<img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/>
+BearBlog</h1>
+
+<hr>
+
+<h3>Recent Posts</h3>
 <p>Hello!
 <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
 to include your name with greetings you post.</p>
@@ -94,7 +101,7 @@ to include your name with greetings you post.</p>
     }
 %>
 
-    <form action="/ofysign" method="post"> <!-- ofysign? -->
+    <form action="/ofysign" method="post">
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
       <div><input type="submit" value="Post Greeting" /></div>
       <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>

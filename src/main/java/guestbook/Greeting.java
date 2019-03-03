@@ -19,11 +19,11 @@ public class Greeting implements Comparable<Greeting> {
     @Index String title;
     @Index Date date;
     private Greeting() {}
-    public Greeting(User user, String content, String guestbookName) {
+    public Greeting(User user, String content, String guestbookName, String title) {
         this.user = user;
         this.content = content;
         this.guestbookName = Key.create(Guestbook.class, guestbookName);
-        this.title = "Testing Title";
+        this.title = title;
         date = new Date();
     }
     public User getUser() {
