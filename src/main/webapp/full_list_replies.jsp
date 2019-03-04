@@ -39,13 +39,14 @@
     //       (request.getQueryString() != null ? "?" + request.getQueryString() : "");
     
     // CURRENT URL RETURNS THE CURRENT URL MINUS THE .JSP AT THE END
-    String current_url = request.getScheme() + "://" +
+    String base_url = request.getScheme() + "://" +
             request.getServerName() + 
-            ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );
- 	// CHANGE TO THE ADDRESS OF THE ACTUAL LANDING PAGE
-    current_url = current_url + "/ofyguestbook.jsp"; 
+            ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );	
+	String landing_url = base_url + "/ofyguestbook.jsp";
+	String compose_url = base_url + "/post_message.jsp";
+	String full_list_url = base_url + "/full_list_replies.jsp";
 	%>	
-		<p><a href="<%= current_url %>" >Return to Landing Page</a></p>
+		<p><a href="<%= landing_url %>" >Recent Posts</a> or <a href="<%= compose_url %>" >Compose Post</a></p>
 		<h3>Here is a list of all the messages posted on Bear Blog</h3>
 		
 	<%

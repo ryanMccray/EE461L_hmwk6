@@ -37,12 +37,15 @@
 	
 	<%
     // CURRENT URL RETURNS THE CURRENT URL MINUS THE .JSP AT THE END
-    String landing_url = request.getScheme() + "://" +
+    String base_url = request.getScheme() + "://" +
             request.getServerName() + 
             ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );	
+	String landing_url = base_url + "/ofyguestbook.jsp";
+	String compose_url = base_url + "/post_message.jsp";
+	String full_list_url = base_url + "/full_list_replies.jsp";
 %>
  
-		<p><a href="<%= landing_url %>" >Return to Landing Page</a>.</p>
+		<p><a href="<%= landing_url %>" >Recent Posts</a> or <a href="<%= full_list_url %>" >All Posts</a>.</p>
 		<h3>Compose your blog post below</h3>
 		
 		<form action="/ofysign" method="post">
