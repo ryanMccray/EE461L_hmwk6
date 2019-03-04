@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/cronjob</url>
+    <!--<target>default</target>-->
+    <description>Daily Email Service</description>
+    <schedule>every day at 5pm</schedule>
+    <timezone>US/Central</timezone>
+
+  </cron>
+</cronentries>
