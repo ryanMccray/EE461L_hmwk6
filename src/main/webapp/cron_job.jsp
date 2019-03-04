@@ -52,22 +52,22 @@
 	<% 
 	ObjectifyService.register(Subscribe.class);
 	List<Subscribe> subscribers = ObjectifyService.ofy().load().type(Subscribe.class).list();   
-	
-    //if (subscribers.isEmpty()) {
+
+    if (subscribers.isEmpty()) {
     %> 
     	<p>There are no subscribers in '${fn:escapeXml(guestbookName)}'.</p> 
    	<%
-    //} 
-    //else {
+    } 
+    else {
     %> 
     	<p>Current Subscribers in '${fn:escapeXml(guestbookName)}'.</p>
     <%
-    //    for(Subscribe subscriber: subscribers){
-    //        pageContext.setAttribute("sub_email", subscriber.getEmailAddress());
+        for(Subscribe subscriber: subscribers){
+            pageContext.setAttribute("sub_email", subscriber.getEmailAddress());
     %> 		<blockquote>${fn:escapeXml(sub_email)}</blockquote> 
     <%
-    //	}
-    //}
+    	}
+    }
 	%>
 
 

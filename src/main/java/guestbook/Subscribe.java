@@ -14,6 +14,7 @@ public class Subscribe {
     @Index User user;
     String email_address;
 
+    public Subscribe() {}
     public Subscribe(String email_address) {//, String guestbookName) {
         this.email_address = email_address;
         //this.guestbookName = Key.create(Guestbook.class, guestbookName);
