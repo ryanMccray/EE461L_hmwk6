@@ -26,6 +26,9 @@
    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
  </head>
   <body>
+  <h1 style=font-family:papyrus> 
+  <a href="https://guestbook-231523.appspot.com/landing_page.jsp"><img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/></a>
+BearBlog</h1>
   
 
 	<%
@@ -49,17 +52,23 @@
 %>
  
 		<p><a href="<%= landing_url %>" >Landing Page</a> | <a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a></p>
+		<hr>
 		<h3>Sign up for a Scheduled Email, notifying you about recent posts</h3>
 		<br>
 		<p> Please enter the email address you would like alerts sent to.</p>
 		<p> Alerts will be sent every day at 5 pm.</p>
 <%if(user!=null){ %>
 		<form action="/subscribe" method="post">
-      	<div> <input type="submit" value="Subscribe or Usubscribe" /> </div>
+      	<div> <input type="submit" value="Subscribe or Unsubscribe" /> </div>
       	<input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
       	</form>
       			
 	<% 
+}else{
+	%>
+	<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+	<%
+	
 }
 	ObjectifyService.register(Subscribe.class);
 	List<Subscribe> subscribers = ObjectifyService.ofy().load().type(Subscribe.class).list();   

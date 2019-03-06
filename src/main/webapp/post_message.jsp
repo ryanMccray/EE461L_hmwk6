@@ -50,7 +50,7 @@ BearBlog</h1>
 	String cron_url = base_url + "/cron_job.jsp";
 %>
  
-		<p><a href="<%= landing_url %>" >Landing Page</a> or <a href="<%= full_list_url %>" >All Posts</a> or <a href="<%= cron_url %>" >Subscribe Here!</a></p>
+		<p><a href="<%= landing_url %>" >Landing Page</a> | <a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= cron_url %>" >Subscribe Here!</a></p>
 		<hr>
 		<h3>Compose your blog post below</h3>
 		
