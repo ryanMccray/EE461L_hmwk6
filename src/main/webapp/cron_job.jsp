@@ -2,6 +2,18 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
+<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreService" %>
+<%@ page import="com.google.appengine.api.datastore.Query" %>
+<%@ page import="com.google.appengine.api.datastore.Entity" %>
+<%@ page import="com.google.appengine.api.datastore.FetchOptions" %>
+<%@ page import="com.google.appengine.api.datastore.Key" %>
+<%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
+<%@ page import="com.googlecode.objectify.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="guestbook.Greeting" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="com.googlecode.objectify.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="guestbook.Subscribe" %>
@@ -18,6 +30,8 @@
 
 	<%
     String guestbookName = request.getParameter("guestbookName");
+	UserService userService = UserServiceFactory.getUserService();
+    User user = userService.getCurrentUser();
     if (guestbookName == null) {
         guestbookName = "default";
     }
@@ -39,25 +53,25 @@
 		<br>
 		<p> Please enter the email address you would like alerts sent to.</p>
 		<p> Alerts will be sent every day at 5 pm.</p>
-		
+<%if(user!=null){ %>
 		<form action="/subscribe" method="post">
-        <div> <textarea name="content" cols="45" > </textarea> </div>
-      	<div> <input type="submit" value="Subscribe" /> </div>
+      	<div> <input type="submit" value="Subscribe or Usubscribe" /> </div>
       	<input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
       	</form>
-		
+      			
 	<% 
+}
 	ObjectifyService.register(Subscribe.class);
 	List<Subscribe> subscribers = ObjectifyService.ofy().load().type(Subscribe.class).list();   
 
     if (subscribers.isEmpty()) {
     %> 
-    	<p>There are no subscribers in '${fn:escapeXml(guestbookName)}'.</p> 
+    	<p>There are no subscribers to Bear Blog.</p> 
    	<%
     } 
     else {
     %> 
-    	<p>Current Subscribers in '${fn:escapeXml(guestbookName)}'.</p>
+    	<p>Current Subscribers to Bear Blog.</p>
     <%
         for(Subscribe subscriber: subscribers){
             pageContext.setAttribute("sub_email", subscriber.getEmailAddress());
