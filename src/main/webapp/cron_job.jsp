@@ -22,17 +22,21 @@
     }
     pageContext.setAttribute("guestbookName", guestbookName);
     
+    
     // CURRENT URL RETURNS THE CURRENT URL MINUS THE .JSP AT THE END
-    String current_url = request.getScheme() + "://" +
+    String base_url = request.getScheme() + "://" +
             request.getServerName() + 
-            ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );
- 	// CHANGE TO THE ADDRESS OF THE ACTUAL LANDING PAGE
-    current_url = current_url + "/ofyguestbook.jsp"; 
-	%>	
-		<p><a href="<%= current_url %>" >Return to Landing Page</a></p>
+            ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );	
+	String landing_url = base_url + "/landing_page.jsp";
+	String compose_url = base_url + "/post_message.jsp";
+	String full_list_url = base_url + "/full_list_replies.jsp";
+	String cron_url = base_url + "/crob_job.jsp";
+%>
+ 
+		<p><a href="<%= landing_url %>" >Landing Page</a> | <a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a></p>
 		<h3>Sign up for a Scheduled Email, notifying you about recent posts</h3>
 		<br>
-		<p> Please Enter the email address you would like alerts sent to.</p>
+		<p> Please enter the email address you would like alerts sent to.</p>
 		<p> Alerts will be sent every day at 5 pm.</p>
 		
 		<form action="/subscribe" method="post">

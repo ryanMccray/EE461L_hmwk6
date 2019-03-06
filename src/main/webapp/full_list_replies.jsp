@@ -42,11 +42,12 @@
     String base_url = request.getScheme() + "://" +
             request.getServerName() + 
             ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );	
-	String landing_url = base_url + "/ofyguestbook.jsp";
+	String landing_url = base_url + "/landing_page.jsp";
 	String compose_url = base_url + "/post_message.jsp";
 	String full_list_url = base_url + "/full_list_replies.jsp";
+	String cron_url = base_url + "/cron_job.jsp";
 	%>	
-		<p><a href="<%= landing_url %>" >Recent Posts</a> or <a href="<%= compose_url %>" >Compose Post</a></p>
+		<p><a href="<%= landing_url %>" >Landing Page</a> or <a href="<%= compose_url %>" >Compose Post</a> or <a href="<%= cron_url %>" >Subscribe Here!</a></p>
 		<h3>Here is a list of all the messages posted on Bear Blog</h3>
 		
 	<%

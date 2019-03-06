@@ -36,12 +36,13 @@ BearBlog</h1>
     String base_url = request.getScheme() + "://" +
             request.getServerName() + 
             ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );	
-	String landing_url = base_url + "/ofyguestbook.jsp";
+	String landing_url = base_url + "/landing_page.jsp";
 	String compose_url = base_url + "/post_message.jsp";
 	String full_list_url = base_url + "/full_list_replies.jsp";
+	String cron_url = base_url + "/cron_job.jsp";
 %>
  
-		<p><a href="<%= full_list_url %>" >All Posts</a> or <a href="<%= compose_url %>" >Compose Post</a></p>
+		<p><a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a></p>
 		<h3>View recent blog posts below</h3>
 
 <hr>
@@ -53,7 +54,7 @@ BearBlog</h1>
 <%
     } else {
 %>
-<h1>
+<h1 style=font-family:papyrus>
 <img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/>
 BearBlog</h1>
 <%
@@ -61,13 +62,14 @@ BearBlog</h1>
     String base_url = request.getScheme() + "://" +
             request.getServerName() + 
             ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );	
-	String landing_url = base_url + "/ofyguestbook.jsp";
+	String landing_url = base_url + "/landing_page.jsp";
 	String compose_url = base_url + "/post_message.jsp";
 	String full_list_url = base_url + "/full_list_replies.jsp";
+	String cron_url = base_url + "/cron_job.jsp";
 %>
  
-		<p><a href="<%= full_list_url %>" >All Posts</a> or <a href="<%= compose_url %>" >Compose Post</a></p>
-		<h3>View recent blog posts below</h3>
+		<p><a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a></p>
+		<h3>Welcome to the Landing Page</h3>
 <hr>
 
 <h3>Recent Posts</h3>
@@ -110,7 +112,8 @@ to include your name with greetings you post.</p>
                 pageContext.setAttribute("greeting_user",
                                          greeting.getUser());
                 %>
-                <p>At ${fn:escapeXml(greeting_date)}, <b>${fn:escapeXml(greeting_user.nickname)}</b> posted ${fn:escapeXml(greeting_title)}:</p>
+                <p>At ${fn:escapeXml(greeting_date)}, <b>${fn:escapeXml(greeting_user.nickname)}</b> posted:</p>
+                <h4 style=font-family:verdana>${fn:escapeXml(greeting_title)} </h4>
                 <%
             }
             %>

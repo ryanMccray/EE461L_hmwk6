@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
-//https://guestbook-231523.appspot.com/ofyguestbook.jsp?guestbookName=default
+//https://guestbook-231523.appspot.com/landing_page.jsp?guestbookName=default
 
 public class OfySignGuestbookServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -48,7 +48,7 @@ public class OfySignGuestbookServlet extends HttpServlet {
         Greeting greeting = new Greeting(user, content, guestbookName,title); //add title
         ofy().save().entity(greeting).now();
 
-        resp.sendRedirect("/ofyguestbook.jsp?guestbookName=" + guestbookName);
+        resp.sendRedirect("/landing_page.jsp?guestbookName=" + guestbookName);
     }
 
 }

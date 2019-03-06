@@ -1,4 +1,4 @@
-//https://tutorial5-231522.appspot.com/ofyguestbook.jsp
+//https://tutorial5-231522.appspot.com/landing_page.jsp
 package guestbook;
  
 import java.io.IOException;

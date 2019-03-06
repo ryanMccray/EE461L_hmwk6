@@ -1,4 +1,4 @@
-//https://tutorial5-231522.appspot.com/ofyguestbook.jsp
+//https://tutorial5-231522.appspot.com/landing_page.jsp
 package guestbook;
  
 import java.io.IOException;
@@ -33,7 +33,7 @@ public class SendServlet extends HttpServlet {
 
     	try {
     		Message msg = new MimeMessage(session);
-    		msg.setFrom(new InternetAddress("admin@example.com", "Example.com Admin"));
+    		msg.setFrom(new InternetAddress("rmccray890@gmail.com", "BearBlog Admin"));
     		for(Subscribe subscriber: subscribers){
     			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(subscriber.getEmailAddress(), "Bear Blog User"));
     		}
@@ -47,6 +47,7 @@ public class SendServlet extends HttpServlet {
     	} catch (UnsupportedEncodingException e) {
     		// ...
     	}
+    	
     
     }
 

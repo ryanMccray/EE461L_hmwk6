@@ -4,7 +4,7 @@
     <url>/cronjob</url>
     <!--<target>default</target>-->
     <description>Daily Email Service</description>
-    <schedule>every day at 5pm</schedule>
+    <schedule>every day 17:00</schedule>
     <timezone>US/Central</timezone>
 
   </cron>
