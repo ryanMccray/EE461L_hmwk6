@@ -22,6 +22,10 @@
    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
  </head>
   <body>
+  <h1 style=font-family:papyrus> 
+  <a href="https://guestbook-231523.appspot.com/landing_page.jsp"><img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/></a>
+BearBlog</h1>
+
   
   <%
     String guestbookName = request.getParameter("guestbookName");
@@ -43,10 +47,11 @@
 	String landing_url = base_url + "/landing_page.jsp";
 	String compose_url = base_url + "/post_message.jsp";
 	String full_list_url = base_url + "/full_list_replies.jsp";
-	String cron_url = base_url + "/crob_job.jsp";
+	String cron_url = base_url + "/cron_job.jsp";
 %>
  
 		<p><a href="<%= landing_url %>" >Landing Page</a> or <a href="<%= full_list_url %>" >All Posts</a> or <a href="<%= cron_url %>" >Subscribe Here!</a></p>
+		<hr>
 		<h3>Compose your blog post below</h3>
 		
 		<form action="/ofysign" method="post">
@@ -54,7 +59,7 @@
         <div><textarea name="content" rows="10" cols="100"></textarea></div>
       <%if(user == null){ %> <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> <%}
       else{ %>
-      <div><input type="submit" value="Post Greeting" /></div>
+      <div><input type="submit" value="Post to blog" /></div>
       <%} %>
       <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
         </form>

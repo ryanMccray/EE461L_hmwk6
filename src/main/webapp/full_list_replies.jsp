@@ -22,6 +22,10 @@
    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
  </head>
   <body>
+ <h1 style=font-family:papyrus> 
+  <a href="https://guestbook-231523.appspot.com/landing_page.jsp"><img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/></a>
+BearBlog</h1>
+
 
 	<%
     String guestbookName = request.getParameter("guestbookName");
@@ -47,7 +51,8 @@
 	String full_list_url = base_url + "/full_list_replies.jsp";
 	String cron_url = base_url + "/cron_job.jsp";
 	%>	
-		<p><a href="<%= landing_url %>" >Landing Page</a> or <a href="<%= compose_url %>" >Compose Post</a> or <a href="<%= cron_url %>" >Subscribe Here!</a></p>
+		<p> <a href="<%= landing_url %>" >Landing Page</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a></p>
+		<hr>
 		<h3>Here is a list of all the messages posted on Bear Blog</h3>
 		
 	<%
@@ -84,7 +89,7 @@
 				<%
 			}
             %>
-            <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
+            <blockquote>${fn:escapeXml(greeting_content)}</blockquote><br><br>
 			<%
 
         }

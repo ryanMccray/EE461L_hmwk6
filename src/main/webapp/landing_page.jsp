@@ -29,7 +29,7 @@
       pageContext.setAttribute("user", user);
 %>
 <h1 style=font-family:papyrus>
-<img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/>
+<a href="https://guestbook-231523.appspot.com/landing_page.jsp"><img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/></a>
 BearBlog</h1>
 <%
     // CURRENT URL RETURNS THE CURRENT URL MINUS THE .JSP AT THE END
@@ -50,12 +50,13 @@ BearBlog</h1>
 <h3>Recent Posts</h3>
 
 <p>Hello, ${fn:escapeXml(user.nickname)}! (You can
-<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
+<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p><br>
 <%
     } else {
 %>
 <h1 style=font-family:papyrus>
-<img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/>
+
+<a href="https://guestbook-231523.appspot.com/landing_page.jsp"><img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/></a>
 BearBlog</h1>
 <%
     // CURRENT URL RETURNS THE CURRENT URL MINUS THE .JSP AT THE END
@@ -86,13 +87,12 @@ to include your name with greetings you post.</p>
 	Collections.sort(greetings); 
     if (greetings.isEmpty()) {
         %>
-        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
+        <p>BearBlog has no posts yet, go to Compose Post above to be the first!</p>
         <%
     } 
     else {
 
         %>
-        <p>Posts in BearBlog '${fn:escapeXml(guestbookName)}'.</p>
         <%
 
         int count = 3;
@@ -112,12 +112,13 @@ to include your name with greetings you post.</p>
                 pageContext.setAttribute("greeting_user",
                                          greeting.getUser());
                 %>
-                <p>At ${fn:escapeXml(greeting_date)}, <b>${fn:escapeXml(greeting_user.nickname)}</b> posted:</p>
-                <h4 style=font-family:verdana>${fn:escapeXml(greeting_title)} </h4>
+                <p> At ${fn:escapeXml(greeting_date)}, <b>${fn:escapeXml(greeting_user.nickname)}</b> posted:</p>
+                <h4 style=font-family:helvetica>${fn:escapeXml(greeting_title)} </h4>
                 <%
             }
             %>
             <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
+            <br><br>
             <%
             count--;
             if(count == 0){

@@ -14,6 +14,7 @@
    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
  </head>
   <body>
+  
 
 	<%
     String guestbookName = request.getParameter("guestbookName");
