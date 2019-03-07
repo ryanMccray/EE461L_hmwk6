@@ -15,7 +15,8 @@
    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
  </head>
 
-  <body>
+ <!--<body background="/images/4bears.jpg">  --> 
+ <body>
  
 <%
     String guestbookName = request.getParameter("guestbookName");
@@ -43,7 +44,7 @@ BearBlog</h1>
 %>
  
 		<p><a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a></p>
-		<h3>View recent blog posts below</h3>
+		
 
 <hr>
 
