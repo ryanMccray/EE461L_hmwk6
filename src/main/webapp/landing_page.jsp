@@ -12,10 +12,10 @@
 
    <head>
    
-   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" id = "main"/>
+ <!--   <link type="text/css" rel="stylesheet" href="/stylesheets/bearAttack.css" id="light" class="alternate"> --> 
  </head>
 
- <!--<body background="/images/4bears.jpg">  --> 
  <body>
  
 <%
@@ -43,7 +43,8 @@ BearBlog</h1>
 	String cron_url = base_url + "/cron_job.jsp";
 %>
  
-		<p><a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a></p>
+		<p><a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a>
+		<button onclick="swap()" style="float: right;">Bear Attack (NSWF)</button></p>
 		
 
 <hr>
@@ -70,7 +71,8 @@ BearBlog</h1>
 	String cron_url = base_url + "/cron_job.jsp";
 %>
  
-		<p><a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a></p>
+		<p><a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a>
+		<button onclick="swap()" style="float: right;">Bear Attack (NSWF)</button></p>
 		<h3>Welcome to the Landing Page</h3>
 <hr>
 
@@ -130,12 +132,26 @@ to include your name with greetings you post.</p>
 %>  
 
 <script>
-var dt = new Date();
-document.getElementById("datetime").innerHTML = dt.toLocaleString();
-</script>   
-<script>
-var dt = new Date();
-document.getElementById("datetime2").innerHTML = dt.toLocaleString();
+function swap() {
+
+    var oldlink = document.getElementsByTagName("link").item(0);
+
+    if(oldlink.getAttribute("href") == "/stylesheets/bearAttack.css"){
+    	var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("type", "text/css");
+        newlink.setAttribute("href", "/stylesheets/main.css");
+    	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+    	
+    }else{
+    	var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("type", "text/css");
+        newlink.setAttribute("href", "/stylesheets/bearAttack.css");
+    	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+    	
+    }
+}
 </script>  
  
   </body>

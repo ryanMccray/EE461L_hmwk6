@@ -57,6 +57,17 @@ BearBlog</h1>
 		<form action="/ofysign" method="post">
 		<div>Title: <textarea name="title" rows="1" cols="60"></textarea></div>
         <div><textarea name="content" rows="10" cols="100"></textarea></div>
+  <!--        Choose font color: <select name="color">
+        <option value="Black">Default -- Black</option>
+  		<option value="Azure">Azure</option>
+ 		<option value="Blue">Blue</option>
+ 		<option value="Brown">Brown</option>
+ 	    <option value="Crimson">Crimson</option>
+ 	    <option value="Dark Blue">Dark Blue</option>
+ 	    <option value="Gold">Gold</option>
+ 	    <option value="Gray">Gray</option>
+ 	    <option value="Green">Green</option>
+		</select><br>  -->
       <%if(user == null){ %> <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> <%}
       else{ %>
       <div><input type="submit" value="Post to blog" /></div>
