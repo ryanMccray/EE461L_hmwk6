@@ -44,8 +44,9 @@ public class OfySignGuestbookServlet extends HttpServlet {
         Collections.sort(greetings); 
         String guestbookName = req.getParameter("guestbookName");       
         String content = req.getParameter("content");
+        //Ryan added this
         String title = req.getParameter("title");
-        Greeting greeting = new Greeting(user, content, guestbookName,title); //add title
+        Greeting greeting = new Greeting(user, content, guestbookName,title); //this too
         ofy().save().entity(greeting).now();
 
         resp.sendRedirect("/landing_page.jsp?guestbookName=" + guestbookName);

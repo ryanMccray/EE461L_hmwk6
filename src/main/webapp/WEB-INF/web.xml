@@ -23,6 +23,7 @@
 	</servlet-mapping>
 
 	<!-- Cron Job -->
+	<!-- Ken driving for cron job mapping -->
 	<servlet>
 		<servlet-name>cronjob</servlet-name>
 		<servlet-class>guestbook.SendServlet</servlet-class>
@@ -63,6 +64,7 @@
 	</filter-mapping>
 
 	<welcome-file-list>
+	<!-- Ryan changed home page from guestbook to landing_page -->
 		<welcome-file>landing_page.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

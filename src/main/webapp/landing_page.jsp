@@ -13,6 +13,7 @@
    <head>
    
    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" id = "main"/>
+   <!-- Ryan driving for this comment -->
  <!--   <link type="text/css" rel="stylesheet" href="/stylesheets/bearAttack.css" id="light" class="alternate"> --> 
  </head>
 
@@ -29,11 +30,13 @@
     if (user != null) {
       pageContext.setAttribute("user", user);
 %>
+<!-- Ryan driving for header, I think papyrus was the font of the Brother Bear movie? -->
+<!-- Ryan driving also for this code on every other .jsp file -->
 <h1 style=font-family:papyrus>
 <a href="https://guestbook-231523.appspot.com/landing_page.jsp"><img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/></a>
 BearBlog</h1>
 <%
-    // CURRENT URL RETURNS THE CURRENT URL MINUS THE .JSP AT THE END
+    // Ken driving for these links, copy/pasted to every page. Links available changed accordingly.
     String base_url = request.getScheme() + "://" +
             request.getServerName() + 
             ("http".equals(request.getScheme()) && request.getServerPort() == 80 || "https".equals(request.getScheme()) && request.getServerPort() == 443 ? "" : ":" + request.getServerPort() );	
@@ -44,9 +47,10 @@ BearBlog</h1>
 %>
  
 		<p><a href="<%= full_list_url %>" >All Posts</a> | <a href="<%= compose_url %>" >Compose Post</a> | <a href="<%= cron_url %>" >Subscribe Here!</a>
+		<!-- Ryan driving for this line of code -->
 		<button onclick="swap()" style="float: right;">Bear Attack (NSWF)</button></p>
 		
-
+<!-- Ryan driving here, <hr> very important stylistic choice. -->
 <hr>
 
 <h3>Recent Posts</h3>
@@ -56,6 +60,7 @@ BearBlog</h1>
 <%
     } else {
 %>
+<!-- Ryan driving here just like above, is same code -->
 <h1 style=font-family:papyrus>
 
 <a href="https://guestbook-231523.appspot.com/landing_page.jsp"><img src="/images/bearpaw.jpg" alt="" width="100" height="98.5"/></a>
@@ -77,7 +82,7 @@ BearBlog</h1>
 <hr>
 
 <h3>Recent Posts</h3>
-<p>Hello!
+<p>Hello! <!-- this is only different part, just like guestbook -->
 <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
 to include your name with greetings you post.</p>
 <%
@@ -97,7 +102,7 @@ to include your name with greetings you post.</p>
 
         %>
         <%
-
+		//Ken driving
         int count = 3;
         for (int i = greetings.size()-1; i >= 0; i--) {
         	Greeting greeting = greetings.get(i);
@@ -132,6 +137,7 @@ to include your name with greetings you post.</p>
 %>  
 
 <script>
+//Ryan driving
 function swap() {
 
     var oldlink = document.getElementsByTagName("link").item(0);

@@ -20,7 +20,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
+//Ken driving for this whole page except where Ryan puts in his email
 public class SendServlet extends HttpServlet {
 	
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -33,6 +33,7 @@ public class SendServlet extends HttpServlet {
 
     	try {
     		Message msg = new MimeMessage(session);
+    		//Ryan driving for email input 
     		msg.setFrom(new InternetAddress("rmccray890@gmail.com", "BearBlog Admin"));
     		for(Subscribe subscriber: subscribers){
     			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(subscriber.getEmailAddress(), "Bear Blog User"));

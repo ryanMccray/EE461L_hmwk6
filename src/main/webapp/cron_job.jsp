@@ -19,7 +19,7 @@
 <%@ page import="guestbook.Subscribe" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
- 
+<!-- Ken driving for this whole file --> 
 <html>
 
  <head>
@@ -58,6 +58,7 @@ BearBlog</h1>
 		<p> Please enter the email address you would like alerts sent to.</p>
 		<p> Alerts will be sent every day at 5 pm.</p>
 <%if(user!=null){ %>
+		<!-- Ken still driving -->
 		<form action="/subscribe" method="post">
       	<div> <input type="submit" value="Subscribe or Unsubscribe" /> </div>
       	<input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>

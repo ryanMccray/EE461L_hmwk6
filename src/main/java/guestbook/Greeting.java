@@ -16,6 +16,7 @@ public class Greeting implements Comparable<Greeting> {
     @Id Long id;
     @Index User user;
     @Index String content;
+    //Ryan driving for title and date field addition and required changes to constructor, additions to get methods
     @Index String title;
     @Index Date date;
     private Greeting() {}

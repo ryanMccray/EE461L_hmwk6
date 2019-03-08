@@ -56,7 +56,7 @@ BearBlog</h1>
 		<h3>Here is a list of all the messages posted on Bear Blog</h3>
 		
 	<%
-
+//Ken driving, I am mostly copying this from home page of guestbook and translating to Bear Blog
 	ObjectifyService.register(Greeting.class);
 	List<Greeting> greetings = ObjectifyService.ofy().load().type(Greeting.class).list();   
 	Collections.sort(greetings); 
@@ -64,14 +64,14 @@ BearBlog</h1>
     if (greetings.isEmpty()) {
 
     %>
-        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
+        <p>Bear Blog has no messages.</p>
         <%
 
     } 
     else {
 
         %>
-        <p>Messages in Guestbook '${fn:escapeXml(guestbookName)}'.</p>
+        <p>Posts in Bear Blog.</p>
         <%
         for (Greeting greeting : greetings) {
             pageContext.setAttribute("greeting_content", greeting.getContent());

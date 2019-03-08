@@ -54,9 +54,12 @@ BearBlog</h1>
 		<hr>
 		<h3>Compose your blog post below</h3>
 		
+		<!-- Ryan driving here. Form was kept from guestbook, but I made it prettier. -->
+		
 		<form action="/ofysign" method="post">
 		<div>Title: <textarea name="title" rows="1" cols="60"></textarea></div>
         <div><textarea name="content" rows="10" cols="100"></textarea></div>
+        <!-- Ryan driving at later time: messed with adding a text color option. Idea ditched. -->
   <!--        Choose font color: <select name="color">
         <option value="Black">Default -- Black</option>
   		<option value="Azure">Azure</option>
